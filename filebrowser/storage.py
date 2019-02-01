@@ -92,7 +92,7 @@ class S3BotoStorageMixin(StorageMixin):
             return False
 
         name = self._normalize_name(self._clean_name(name))
-        dirlist = self.bucket.list(self._encode_name(name))
+        dirlist = self.listdir(self._encode_name(name))
 
         # Check whether the iterator is empty
         for item in dirlist:
